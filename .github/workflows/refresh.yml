@@ -1,0 +1,31 @@
+name: Refresh public bulletin catalog
+on:
+  schedule:
+    - cron: '17 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: public-bulletin-catalog
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09
+        with:
+          ref: main
+      - name: Validate and refresh only the public bulletin index
+        run: |
+          node --test refresh.test.mjs
+          node refresh.mjs
+          git add -- catalog.json
+          if git diff --cached --quiet -- catalog.json; then
+            exit 0
+          fi
+          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Refresh public bulletin catalog'
+          git push origin HEAD:main
