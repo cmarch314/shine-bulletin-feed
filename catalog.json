@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-10T17:41:39.355Z",
+  "checkedAt": "2026-11-15T11:09:05.871Z",
   "issues": [
     {
       "date": "2026-11-08",
@@ -830,47 +830,6 @@
         },
         {
           "src": "https://k.kakaocdn.net/dn/dTq0da/dJMcadWUnTo/TTRrSqNQz7rfD4JNpkhZT1/img.png",
-          "width": 720,
-          "height": 960
-        }
-      ]
-    },
-    {
-      "date": "2026-06-28",
-      "source": "https://pf.kakao.com/_WqHGb/113787722",
-      "pages": [
-        {
-          "src": "https://k.kakaocdn.net/dn/vNUKK/dJMcad3ycwT/330umwOy7gz6dwDKNHHw50/img.png",
-          "width": 720,
-          "height": 960
-        },
-        {
-          "src": "https://k.kakaocdn.net/dn/Qe42o/dJMcacDGKKp/8rDq4Xp91x5kA7WgwlncLK/img.png",
-          "width": 720,
-          "height": 960
-        },
-        {
-          "src": "https://k.kakaocdn.net/dn/bhIQ23/dJMcajir0l7/7RFWiAixTSuhk0knnYiQ5k/img.png",
-          "width": 720,
-          "height": 960
-        },
-        {
-          "src": "https://k.kakaocdn.net/dn/9sg06/dJMcabSdr7v/JK1dJpkrPdE4kY7K3TlO9K/img.png",
-          "width": 720,
-          "height": 960
-        },
-        {
-          "src": "https://k.kakaocdn.net/dn/vEDxl/dJMcabLzrjS/zygYbY0yVhDX8FAmIJs871/img.png",
-          "width": 720,
-          "height": 960
-        },
-        {
-          "src": "https://k.kakaocdn.net/dn/imnfh/dJMcacwSquE/wMSsKNGtdyRTUGtinuOrsk/img.png",
-          "width": 720,
-          "height": 960
-        },
-        {
-          "src": "https://k.kakaocdn.net/dn/djkK4E/dJMcajo7rcG/VRhouowcsTvfyLxWn2e3Y1/img.png",
           "width": 720,
           "height": 960
         }
