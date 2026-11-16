@@ -2,6 +2,8 @@ name: Refresh public bulletin catalog
 on:
   schedule:
     - cron: '17 * * * *'
+    # Covers Sunday in Los Angeles, including Sunday evening in UTC Monday.
+    - cron: '43 * * * 0,1'
   workflow_dispatch:
 
 concurrency:

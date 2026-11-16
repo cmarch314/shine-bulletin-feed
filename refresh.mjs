@@ -9,11 +9,12 @@ const dateParts = new Intl.DateTimeFormat('en-US', {
 const textLimit = 900_000
 
 function issueDate(title) {
-  const match = typeof title === 'string' && /^\s*(20\d{2})년\s*(\d{1,2})월\s*(\d{1,2})일\s*주보\s*$/.exec(title)
+  const match = typeof title === 'string' && /^\s*(20\d{2})년\s*(\d{1,2})월\s*(\d{1,2})일\s*주(보)?\s*$/.exec(title.normalize('NFKC'))
   if (!match) return ''
   const date = [match[1], match[2].padStart(2, '0'), match[3].padStart(2, '0')].join('-')
   const parsed = new Date(date + 'T00:00:00Z')
-  return Number.isFinite(+parsed) && parsed.toISOString().slice(0, 10) === date ? date : ''
+  return Number.isFinite(+parsed) && parsed.toISOString().slice(0, 10) === date &&
+    (match[4] || parsed.getUTCDay() === 0) ? date : ''
 }
 
 export function catalogFromKakao(payload, now = new Date()) {
