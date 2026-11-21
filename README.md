@@ -10,4 +10,8 @@ and Monday to cover the local Sunday release window. GitHub may delay scheduled
 runs; `workflow_dispatch` is available for an immediate catch-up. It commits
 only when the catalog changes. Public dated `주보` entries and the shortened
 Sunday-only `주` title are accepted only with validated image pages. Page order
-is preserved. If validation fails, the last published index remains untouched.
+is preserved. The title identifies the service date, not the posting date:
+already-public Sunday bulletins up to seven days ahead of the Los Angeles date
+are included on the next successful refresh. Scheduled or unlisted posts and
+distant future dates are not included. If validation fails, the last published
+index remains untouched.

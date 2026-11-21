@@ -21,13 +21,19 @@ export function catalogFromKakao(payload, now = new Date()) {
   if (!Array.isArray(payload?.items) || payload.items.length > 60) throw Error('Unexpected list.')
   const parts = dateParts.formatToParts(now)
   const today = ['year', 'month', 'day'].map(type => parts.find(part => part.type === type).value).join('-')
+  // The title is a service date, not a publication date. A listed Sunday
+  // bulletin can already be public during the week before the service.
+  const horizon = new Date(today + 'T00:00:00Z')
+  horizon.setUTCDate(horizon.getUTCDate() + 7)
+  const lastServiceDate = horizon.toISOString().slice(0, 10)
   const dates = new Set()
   const sources = new Set()
   const issues = payload.items
     .filter(post => post?.status === 'published' && post.publish_to === 1 &&
       post.is_private === false && post.unlisted === false && post.adult_only === false)
     .map(post => ({ post, date: issueDate(post.title) }))
-    .filter(({ date }) => date && date <= today)
+    .filter(({ date }) => date && (date <= today ||
+      (date <= lastServiceDate && new Date(date + 'T00:00:00Z').getUTCDay() === 0)))
     .sort((left, right) => right.date.localeCompare(left.date))
     .slice(0, 20)
     .map(({ post, date }) => {
